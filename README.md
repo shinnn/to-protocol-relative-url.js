@@ -1,7 +1,7 @@
 # to-protocol-relative-url.js
 
 [![NPM version](https://badge.fury.io/js/to-protocol-relative-url.svg)](https://www.npmjs.org/package/to-protocol-relative-url)
-[![Bower version](https://badge.fury.io/bo/to-protocol-relative-url.svg)](hhttps://github.com/shinnn/to-protocol-relative-url.js/releases)
+[![Bower version](https://badge.fury.io/bo/to-protocol-relative-url.svg)](https://github.com/shinnn/to-protocol-relative-url.js/releases)
 [![Build Status](https://travis-ci.org/shinnn/to-protocol-relative-url.js.svg?branch=master)](https://travis-ci.org/shinnn/to-protocol-relative-url.js)
 [![Build status](https://ci.appveyor.com/api/projects/status/o7y9vb7ykec27qmn)](https://ci.appveyor.com/project/ShinnosukeWatanabe/to-protocol-relative-url-js)
 [![Coverage Status](https://img.shields.io/coveralls/shinnn/to-protocol-relative-url.js.svg)](https://coveralls.io/r/shinnn/to-protocol-relative-url.js?branch=master)
