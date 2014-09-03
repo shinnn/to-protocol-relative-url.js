@@ -1,0 +1,20 @@
+{
+  "name": "to-protocol-relative-url",
+  "version": "1.0.0",
+  "description": "Change a URL into protocol-relative URL",
+  "keywords": [
+    "url",
+    "scheme",
+    "protocol",
+    "string",
+    "protocol-relative",
+    "protocol-relative-url",
+    "cli"
+  ],
+  "repository": "shinnn/to-protocol-relative-url.js",
+  "main": "to-protocol-relative-url-cjs.js",
+  "scripts": [
+    "to-protocol-relative-url-cjs.js"
+  ],
+  "license": "MIT"
+}
