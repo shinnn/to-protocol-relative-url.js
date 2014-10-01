@@ -4,6 +4,8 @@
 */
 
 window.stripProtocol = function toProtocolRelativeUrl(url) {
+  'use strict';
+
   if (typeof url !== 'string') {
     throw new TypeError(url + ' is not a string.');
   }
