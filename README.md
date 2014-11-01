@@ -30,7 +30,7 @@ bower install --save to-protocol-relative-url
 
 ## API
 
-### toProtocolRelativeUrl(url) 
+### toProtocolRelativeUrl(*url*)
 
 *url*: `String`  
 Return: `String`
@@ -47,6 +47,21 @@ toProtocolRelativeURL('git@github.com:npm/npm.git');
 
 toProtocolRelativeURL('Here is http://nodejs.org');
 //=> Here is http://nodejs.org (doesn't change)
+```
+
+## CLI
+
+You can use this module as a CLI tool by installing it [globally](https://www.npmjs.org/doc/files/npm-folders.html#global-installation).
+
+### Usage
+
+```sh
+Usage1: to-protocol-relative-url <string>
+Usage2: echo <string> | to-protocol-relative-url
+
+Options:
+--help,    -h  Print usage information
+--version, -v  Print version
 ```
 
 ## License
