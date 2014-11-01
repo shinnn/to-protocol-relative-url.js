@@ -1,7 +1,14 @@
 #!/usr/bin/env node
 'use strict';
 
-var argv = require('minimist')(process.argv.slice(2));
+var argv = require('minimist')(process.argv.slice(2), {
+  alias: {
+    h: 'help',
+    v: 'version'
+  },
+  string: ['_'],
+  boolean: ['help', 'version']
+});
 var pkg = require('./package.json');
 
 function help() {
@@ -26,18 +33,12 @@ function run(url) {
     return;
   }
 
-  url = '' + url;
-
-  try {
-    console.log(require('./to-protocol-relative-url-cjs.js')(url));
-  } catch (e) {
-    console.error(e);
-  }
+  console.log(require('./to-protocol-relative-url-cjs.js')(url));
 }
 
-if (argv.version || argv.v) {
+if (argv.version) {
   console.log(pkg.version);
-} else if (argv.help || argv.h) {
+} else if (argv.help) {
   help();
 } else if (process.stdin.isTTY) {
   run(argv._[0]);
