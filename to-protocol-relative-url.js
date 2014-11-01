@@ -7,7 +7,7 @@ window.stripProtocol = function toProtocolRelativeUrl(url) {
   'use strict';
 
   if (typeof url !== 'string') {
-    throw new TypeError(url + ' is not a string.');
+    throw new TypeError(url + ' is not a string. It should be a URL.');
   }
 
   return url.replace(/^[a-zA-Z]*?:(?=\/\/)/, '');
