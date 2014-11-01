@@ -3,7 +3,9 @@
 var spawn = require('child_process').spawn;
 
 var test = require('tape');
-var toProtocolRelativeUrl = require('require-main')();
+var toProtocolRelativeUrl = require('./');
+
+var pkg = require('./package.json');
 
 test('toProtocolRelativeUrl()', function(t) {
   t.plan(5);
@@ -31,25 +33,23 @@ test('toProtocolRelativeUrl()', function(t) {
   t.end();
 });
 
-test('"to-protocol-relative-url" command', function(t) {
+test('"to-protocol-relative-url" command inside a TTY context', function(t) {
   t.plan(7);
-
-  var pkg = require('./package.json');
 
   var cmd = function(args) {
     return spawn('node', [pkg.bin].concat(args), {
       stdio: [process.stdin, null, null]
     });
   };
-  var cmdPipe = function(args) {
-    return spawn('node', [pkg.bin].concat(args), {
-      stdio: ['pipe', null, null]
-    });
-  };
 
   cmd(['http://nodejs.org'])
   .stdout.on('data', function(data) {
     t.equal(data.toString(), '//nodejs.org\n', 'should change a URL into protocol-replative URL.');
+  });
+
+  cmd(['100'])
+  .on('close', function(code) {
+    t.equal(code, 0, 'should not throw any errors even if it takes a number.');
   });
 
   cmd(['--help'])
@@ -59,7 +59,7 @@ test('"to-protocol-relative-url" command', function(t) {
 
   cmd(['--h'])
   .stdout.on('data', function(data) {
-    t.ok(/Usage/.test(data.toString()), 'should accept `-h` alias.');
+    t.ok(/Usage/.test(data.toString()), 'should use `-h` as an alias of `--help`.');
   });
 
   cmd(['--version'])
@@ -69,32 +69,38 @@ test('"to-protocol-relative-url" command', function(t) {
 
   cmd(['-v'])
   .stdout.on('data', function(data) {
-    t.equal(data.toString(), pkg.version + '\n', 'should accept `-v` alias.');
+    t.equal(data.toString(), pkg.version + '\n', 'should use `-v` as an alias of `--version`.');
   });
 
   cmd([])
   .stdout.on('data', function(data) {
     t.ok(/Usage/.test(data.toString()), 'should print help when URL isn\'t specified.');
   });
+});
 
-  t.test('"to-protocol-relative-url" command with pipe (`|`)', function(st) {
-    st.plan(2);
+test('"to-protocol-relative-url" command  outside a TTY context', function(t) {
+  t.plan(2);
 
-    var cp = cmdPipe([]);
-    cp.stdout.on('data', function(data) {
-      st.equal(
-        data.toString(), '//nodejs.org\n',
-        'should change a URL into protocol-replative URL.'
-      );
+  var cmdPipe = function(args) {
+    return spawn('node', [pkg.bin].concat(args), {
+      stdio: ['pipe', null, null]
     });
-    cp.stdin.write('http://nodejs.org');
-    cp.stdin.end();
+  };
 
-    var cpEmpty = cmdPipe([]);
-    cpEmpty.stdout.on('data', function(data) {
-      st.ok(/Usage/.test(data.toString()), 'should print help when stdin is empty.');
-    });
-    cpEmpty.stdin.write('');
-    cpEmpty.stdin.end();
+  var cp = cmdPipe([]);
+  cp.stdout.on('data', function(data) {
+    t.equal(
+      data.toString(), '//nodejs.org\n',
+      'should change a URL into protocol-replative URL.'
+    );
   });
+  cp.stdin.write('http://nodejs.org');
+  cp.stdin.end();
+
+  var cpEmpty = cmdPipe([]);
+  cpEmpty.stdout.on('data', function(data) {
+    t.ok(/Usage/.test(data.toString()), 'should print help when stdin is empty.');
+  });
+  cpEmpty.stdin.write('');
+  cpEmpty.stdin.end();
 });
