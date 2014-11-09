@@ -1,6 +1,5 @@
 {
   "name": "to-protocol-relative-url",
-  "version": "1.0.0",
   "description": "Change a URL into protocol-relative URL",
   "keywords": [
     "url",
