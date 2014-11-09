@@ -42,9 +42,9 @@ test('"to-protocol-relative-url" command inside a TTY context', function(t) {
     });
   };
 
-  cmd(['http://nodejs.org'])
+  cmd(['http://json.org/'])
   .stdout.on('data', function(data) {
-    t.equal(data.toString(), '//nodejs.org\n', 'should change a URL into protocol-replative URL.');
+    t.equal(data.toString(), '//json.org/\n', 'should change a URL into protocol-replative URL.');
   });
 
   cmd(['100'])
