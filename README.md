@@ -1,10 +1,12 @@
 # to-protocol-relative-url.js
 
-[![NPM version](https://badge.fury.io/js/to-protocol-relative-url.svg)](https://www.npmjs.org/package/to-protocol-relative-url)
-[![Bower version](https://badge.fury.io/bo/to-protocol-relative-url.svg)](https://github.com/shinnn/to-protocol-relative-url.js/releases)
+[![NPM version](https://img.shields.io/npm/v/to-protocol-relative-url.svg)](https://www.npmjs.com/package/to-protocol-relative-url)
+[![Bower version](https://img.shields.io/bower/v/to-protocol-relative-url.svg)](https://github.com/shinnn/to-protocol-relative-url.js/releases)
 [![Build Status](https://travis-ci.org/shinnn/to-protocol-relative-url.js.svg?branch=master)](https://travis-ci.org/shinnn/to-protocol-relative-url.js)
-[![Build status](https://ci.appveyor.com/api/projects/status/o7y9vb7ykec27qmn)](https://ci.appveyor.com/project/ShinnosukeWatanabe/to-protocol-relative-url-js)
-[![Coverage Status](https://img.shields.io/coveralls/shinnn/to-protocol-relative-url.js.svg)](https://coveralls.io/r/shinnn/to-protocol-relative-url.js?branch=master)
+[![Build status](https://ci.appveyor.com/api/projects/status/o7y9vb7ykec27qmn?svg=true)](https://ci.appveyor.com/project/ShinnosukeWatanabe/to-protocol-relative-url-js)
+[![Coverage Status](https://img.shields.io/coveralls/shinnn/to-protocol-relative-url.js.svg?label=cov)](https://coveralls.io/r/shinnn/to-protocol-relative-url.js?branch=master)
+[![Dependency Status](https://img.shields.io/david/shinnn/to-protocol-relative-url.js.svg?label=deps)](https://david-dm.org/shinnn/to-protocol-relative-url.js)
+[![devDependency Status](https://img.shields.io/david/shinnn/to-protocol-relative-url.js.svg?label=devDeps)](https://david-dm.org/shinnn/to-protocol-relative-url.js#info=devDependencies)
 
 Change a URL into [protocol-relative URL](http://www.paulirish.com/2010/the-protocol-relative-url/)
 
@@ -12,15 +14,15 @@ Change a URL into [protocol-relative URL](http://www.paulirish.com/2010/the-prot
 
 ### Package managers
 
-#### [npm](https://www.npmjs.org/)
+#### [npm](https://www.npmjs.com/)
 
-```
+```sh
 npm install --save to-protocol-relative-url
 ```
 
 #### [Bower](http://bower.io/)
 
-```
+```sh
 bower install --save to-protocol-relative-url
 ```
 
@@ -51,7 +53,7 @@ toProtocolRelativeURL('Here is http://nodejs.org');
 
 ## CLI
 
-You can use this module as a CLI tool by installing it [globally](https://www.npmjs.org/doc/files/npm-folders.html#global-installation).
+You can use this module as a CLI tool by installing it [globally](https://docs.npmjs.com/files/folders#global-installation).
 
 ### Usage
 
@@ -66,6 +68,6 @@ Options:
 
 ## License
 
-Copyright (c) 2014 [Shinnosuke Watanabe](https://github.com/shinnn)
+Copyright (c) 2014 - 2015 [Shinnosuke Watanabe](https://github.com/shinnn)
 
 Licensed under [the MIT License](./LICENSE).
