@@ -2,13 +2,14 @@
  * to-protocol-relative-url.js | MIT (c) Shinnosuke Watanabe
  * https://github.com/shinnn/to-protocol-relative-url.js
 */
-
 window.stripProtocol = function toProtocolRelativeUrl(url) {
   'use strict';
 
   if (typeof url !== 'string') {
-    throw new TypeError(url + ' is not a string. It should be a URL.');
+    throw new TypeError(
+      url +
+      ' is not a string. Argument to to-protocol-relative-url must be a URL.'
+    );
   }
-
   return url.replace(/^[a-zA-Z]*?:(?=\/\/)/, '');
 };

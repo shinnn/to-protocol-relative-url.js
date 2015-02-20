@@ -8,26 +8,33 @@ var toProtocolRelativeUrl = require('./');
 var pkg = require('./package.json');
 
 test('toProtocolRelativeUrl()', function(t) {
-  t.plan(5);
+  t.plan(6);
+
+  t.equal(toProtocolRelativeUrl.name, 'toProtocolRelativeUrl', 'should have a function name.');
 
   t.equal(
-    toProtocolRelativeUrl('http://nodejs.org'), '//nodejs.org',
+    toProtocolRelativeUrl('http://nodejs.org'),
+    '//nodejs.org',
     'should change a URL into protocol-replative URL.'
   );
   t.equal(
-    toProtocolRelativeUrl('http:://nodejs.org'), 'http:://nodejs.org',
+    toProtocolRelativeUrl('http:://nodejs.org'),
+    'http:://nodejs.org',
     'should not change a invalid URL.'
   );
   t.equal(
-    toProtocolRelativeUrl('git@github.com:npm/npm.git'), 'git@github.com:npm/npm.git',
+    toProtocolRelativeUrl('git@github.com:npm/npm.git'),
+    'git@github.com:npm/npm.git',
     'should not change a non-URL string.'
   );
   t.equal(
-    toProtocolRelativeUrl('Here is http://nodejs.org/.'), 'Here is http://nodejs.org/.',
+    toProtocolRelativeUrl('Here is http://nodejs.org/.'),
+    'Here is http://nodejs.org/.',
     'should not change a string which doesn\'t begin with URL.'
   );
   t.throws(
     toProtocolRelativeUrl.bind(null, ['http://www.example.org/']),
+    /TypeError.* is not a string\. Argument to to-protocol-relative-url must be a URL\./,
     'should throw a type error when the argument is not a string.'
   );
   t.end();
@@ -54,22 +61,22 @@ test('"to-protocol-relative-url" command inside a TTY context', function(t) {
 
   cmd(['--help'])
   .stdout.on('data', function(data) {
-    t.ok(/Usage/.test(data.toString()), 'should print help with `--help` flag.');
+    t.ok(/Usage/.test(String(data)), 'should print help with `--help` flag.');
   });
 
   cmd(['--h'])
   .stdout.on('data', function(data) {
-    t.ok(/Usage/.test(data.toString()), 'should use `-h` as an alias of `--help`.');
+    t.ok(/Usage/.test(String(data)), 'should use `-h` as an alias of `--help`.');
   });
 
   cmd(['--version'])
   .stdout.on('data', function(data) {
-    t.equal(data.toString(), pkg.version + '\n', 'should print version with `--version` flag.');
+    t.equal(String(data), pkg.version + '\n', 'should print version with `--version` flag.');
   });
 
   cmd(['-v'])
   .stdout.on('data', function(data) {
-    t.equal(data.toString(), pkg.version + '\n', 'should use `-v` as an alias of `--version`.');
+    t.equal(String(data), pkg.version + '\n', 'should use `-v` as an alias of `--version`.');
   });
 
   cmd([])
@@ -89,18 +96,13 @@ test('"to-protocol-relative-url" command  outside a TTY context', function(t) {
 
   var cp = cmdPipe([]);
   cp.stdout.on('data', function(data) {
-    t.equal(
-      data.toString(), '//nodejs.org\n',
-      'should change a URL into protocol-replative URL.'
-    );
+    t.equal(String(data), '//nodejs.org\n', 'should change a URL into protocol-replative URL.');
   });
-  cp.stdin.write('http://nodejs.org');
-  cp.stdin.end();
+  cp.stdin.end('http://nodejs.org');
 
   var cpEmpty = cmdPipe([]);
   cpEmpty.stdout.on('data', function(data) {
-    t.ok(/Usage/.test(data.toString()), 'should print help when stdin is empty.');
+    t.ok(/Usage/.test(String(data)), 'should print help when stdin is empty.');
   });
-  cpEmpty.stdin.write('');
-  cpEmpty.stdin.end();
+  cpEmpty.stdin.end('');
 });
