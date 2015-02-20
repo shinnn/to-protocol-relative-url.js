@@ -7,10 +7,9 @@
     "protocol",
     "string",
     "protocol-relative",
-    "protocol-relative-url",
-    "cli"
+    "protocol-relative-url"
   ],
-  "main": "./to-protocol-relative-url.js",
+  "main": "to-protocol-relative-url.js",
   "homepage": "https://github.com/shinnn/to-protocol-relative-url.js",
   "repository": {
     "type": "git",
@@ -25,13 +24,11 @@
   "license": "MIT",
   "ignore": [
     "**/.*",
+    "*.js",
+    "*.json",
     "*.yml",
     "bower_components",
     "coverage",
-    "node_modules",
-    "test.js",
-    "to-protocol-relative-url-cjs.js",
-    "package.json",
-    "component.json"
+    "node_modules"
   ]
 }

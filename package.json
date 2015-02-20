@@ -19,12 +19,11 @@
       "url": "https://github.com/shinnn/to-protocol-relative-url.js/blob/master/LICENSE"
     }
   ],
-  "main": "./to-protocol-relative-url-cjs.js",
-  "bin": "./cli.js",
+  "main": "to-protocol-relative-url-cjs.js",
+  "bin": "cli.js",
   "files": [
     "to-protocol-relative-url-cjs.js",
-    "cli.js",
-    "LICENSE"
+    "cli.js"
   ],
   "keywords": [
     "url",
@@ -37,16 +36,17 @@
   ],
   "dependencies": {
     "chalk": "^0.5.1",
-    "get-stdin": "^3.0.0",
-    "minimist": "^1.1.0"
+    "get-stdin": "^4.0.1",
+    "minimist": "^1.1.0",
+    "sum-up": "^1.0.0"
   },
   "devDependencies": {
-    "eslint": "^0.9.2",
-    "istanbul": "^0.3.2",
+    "eslint": "^0.14.1",
+    "istanbul": "^0.3.6",
     "istanbul-coveralls": "^1.0.1",
-    "jscs": "^1.7.3",
-    "tap-spec": "^1.0.1",
-    "tape": "^3.0.2"
+    "jscs": "^1.11.3",
+    "tap-spec": "^2.2.1",
+    "tape": "^3.5.0"
   },
   "jscsConfig": {
     "preset": "google",
