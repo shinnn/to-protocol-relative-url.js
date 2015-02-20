@@ -9,21 +9,22 @@ var argv = require('minimist')(process.argv.slice(2), {
   string: ['_'],
   boolean: ['help', 'version']
 });
-var pkg = require('./package.json');
 
 function help() {
-  var chalk = require('chalk');
+  var sumUp = require('sum-up');
+  var yellow = require('chalk').yellow;
+
+  var pkg = require('./package.json');
 
   console.log([
-    chalk.cyan(pkg.name) + chalk.gray(' v' + pkg.version),
-    pkg.description,
+    sumUp(pkg),
     '',
     'Usage1: to-protocol-relative-url <string>',
     'Usage2: echo <string> | to-protocol-relative-url',
     '',
     'Options:',
-    chalk.yellow('--help,    -h') + '  Print usage information',
-    chalk.yellow('--version, -v') + '  Print version'
+    yellow('--help,    -h') + '  Print usage information',
+    yellow('--version, -v') + '  Print version'
   ].join('\n'));
 }
 
@@ -37,7 +38,7 @@ function run(url) {
 }
 
 if (argv.version) {
-  console.log(pkg.version);
+  console.log(require('./package.json').version);
 } else if (argv.help) {
   help();
 } else if (process.stdin.isTTY) {
