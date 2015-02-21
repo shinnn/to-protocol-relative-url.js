@@ -1,6 +1,6 @@
 {
   "name": "to-protocol-relative-url",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Change a URL into protocol-relative URL",
   "repository": "shinnn/to-protocol-relative-url.js",
   "author": {
