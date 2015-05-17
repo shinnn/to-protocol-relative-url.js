@@ -9,8 +9,8 @@
   },
   "scripts": {
     "pretest": "eslint *.js & jscs *.js",
-    "test": "node test.js | tap-spec",
-    "coverage": "istanbul cover test.js",
+    "test": "node --harmony_arrow_functions test.js | tap-spec",
+    "coverage": "node --harmony_arrow_functions node_modules/.bin/istanbul cover test.js",
     "coveralls": "${npm_package_scripts_coverage} && istanbul-coveralls"
   },
   "licenses": [

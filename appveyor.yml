@@ -9,8 +9,7 @@ skip_tags: true
 
 environment:
   matrix:
-    - nodejs_version: '1.2'
-    - nodejs_version: '0.12'
+    - nodejs_version: '2'
 
 install:
   - ps: Install-Product node $env:nodejs_version
@@ -20,5 +19,5 @@ install:
 build: off
 
 test_script:
-  - ps: 'node test.js #PowerShell'
-  - cmd: node test.js
+  - ps: 'node --harmony_arrow_functions test.js #PowerShell'
+  - node --harmony_arrow_functions test.js
