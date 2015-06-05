@@ -3,22 +3,14 @@
   "version": "1.0.2",
   "description": "Change a URL into protocol-relative URL",
   "repository": "shinnn/to-protocol-relative-url.js",
-  "author": {
-    "name": "Shinnosuke Watanabe",
-    "url": "https://github.com/shinnn"
-  },
+  "author": "Shinnosuke Watanabe (https://github.com/shinnn)",
   "scripts": {
     "pretest": "eslint --config node_modules/@shinnn/eslintrc/rc.json --rule 'no-reserved-keys: 0' --ignore-path .gitignore .",
     "test": "node --harmony_arrow_functions test.js | tap-spec",
     "coverage": "node --harmony_arrow_functions node_modules/.bin/istanbul cover test.js",
     "coveralls": "${npm_package_scripts_coverage} && istanbul-coveralls"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/shinnn/to-protocol-relative-url.js/blob/master/LICENSE"
-    }
-  ],
+  "license": "MIT",
   "main": "to-protocol-relative-url-cjs.js",
   "bin": "cli.js",
   "files": [
@@ -42,10 +34,10 @@
   },
   "devDependencies": {
     "@shinnn/eslintrc": "^1.0.0",
-    "eslint": "^0.21.1",
+    "eslint": "^0.22.1",
     "istanbul": "^0.3.14",
-    "istanbul-coveralls": "^1.0.2",
-    "tap-spec": "^3.0.0",
+    "istanbul-coveralls": "^1.0.3",
+    "tap-spec": "^4.0.0",
     "tape": "^4.0.0"
   }
 }
