@@ -8,7 +8,7 @@
 [![Dependency Status](https://img.shields.io/david/shinnn/to-protocol-relative-url.js.svg?label=deps)](https://david-dm.org/shinnn/to-protocol-relative-url.js)
 [![devDependency Status](https://img.shields.io/david/shinnn/to-protocol-relative-url.js.svg?label=devDeps)](https://david-dm.org/shinnn/to-protocol-relative-url.js#info=devDependencies)
 
-Change a URL into [protocol-relative URL](http://www.paulirish.com/2010/the-protocol-relative-url/)
+Change a URL into [protocol-relative URL](https://www.paulirish.com/2010/the-protocol-relative-url/)
 
 ## Installation
 
@@ -16,13 +16,13 @@ Change a URL into [protocol-relative URL](http://www.paulirish.com/2010/the-prot
 
 #### [npm](https://www.npmjs.com/)
 
-```sh
+```
 npm install --save to-protocol-relative-url
 ```
 
 #### [Bower](http://bower.io/)
 
-```sh
+```
 bower install --save to-protocol-relative-url
 ```
 
@@ -55,9 +55,13 @@ toProtocolRelativeURL('Here is http://nodejs.org');
 
 You can use this module as a CLI tool by installing it [globally](https://docs.npmjs.com/files/folders#global-installation).
 
+```
+npm install -g to-protocol-relative-url
+```
+
 ### Usage
 
-```sh
+```
 Usage1: to-protocol-relative-url <string>
 Usage2: echo <string> | to-protocol-relative-url
 
