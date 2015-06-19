@@ -1,6 +1,6 @@
 {
   "name": "to-protocol-relative-url",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Change a URL into protocol-relative URL",
   "repository": "shinnn/to-protocol-relative-url.js",
   "author": "Shinnosuke Watanabe (https://github.com/shinnn)",
@@ -30,12 +30,12 @@
     "chalk": "^1.0.0",
     "get-stdin": "^4.0.1",
     "minimist": "^1.1.1",
-    "sum-up": "^1.0.1"
+    "sum-up": "^1.0.2"
   },
   "devDependencies": {
     "@shinnn/eslintrc": "^1.0.0",
-    "eslint": "^0.22.1",
-    "istanbul": "^0.3.14",
+    "eslint": "^0.23.0",
+    "istanbul": "^0.3.15",
     "istanbul-coveralls": "^1.0.3",
     "tap-spec": "^4.0.0",
     "tape": "^4.0.0"
